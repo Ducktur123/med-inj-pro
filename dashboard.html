@@ -7,146 +7,191 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F1F5F9; }
-        .sidebar-gradient { background: linear-gradient(180deg, #182E4B 0%, #091526 100%); }
-        .stat-card { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 24px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        :root { --dolphin-blue: #0077be; --deep-sea: #001f3f; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f0f4f8; }
+        
+        .glass { 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+        }
+
+        .sidebar-blur {
+            background: rgba(0, 31, 63, 0.9);
+            backdrop-filter: blur(15px);
+        }
+
+        .sea-gradient { background: linear-gradient(135deg, #0077be 0%, #00aaff 100%); }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(0, 119, 190, 0.2); }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--dolphin-blue); border-radius: 10px; }
     </style>
 </head>
 <body class="flex min-h-screen">
 
-    <aside class="w-72 sidebar-gradient text-white flex flex-col p-8 fixed h-full z-50">
+    <aside class="w-80 sidebar-blur text-white flex flex-col p-8 fixed h-full z-50 shadow-2xl">
         <div class="mb-12">
-            <div class="text-[10px] font-black text-blue-400 tracking-[0.3em] uppercase mb-1">Principal Architect</div>
+            <div class="h-14 w-14 sea-gradient rounded-2xl flex items-center justify-center text-2xl font-black italic mb-4 shadow-xl">D</div>
+            <div class="text-[10px] font-black text-blue-400 tracking-[0.4em] uppercase mb-1">Principal Architect</div>
             <div class="text-xl font-[900] tracking-tighter italic">DOLPHIN ZONE</div>
         </div>
         
-        <nav class="flex-1 space-y-4">
-            <a href="index.html" class="flex items-center gap-4 text-slate-400 hover:text-white transition font-bold py-2"><span>🏠</span> Home Store</a>
-            <a href="#" class="flex items-center gap-4 text-white transition font-bold py-3 bg-blue-600/20 rounded-xl px-4 -ml-4 border-l-4 border-blue-500"><span>📊</span> Inventory Hub</a>
-            <a href="scholarships.html" class="flex items-center gap-4 text-slate-400 hover:text-white transition font-bold py-2"><span>📡</span> Scholarship Sensor</a>
+        <nav class="flex-1 space-y-6">
+            <a href="index.html" class="flex items-center gap-4 text-slate-400 hover:text-white transition font-bold py-2">
+                <span>🏠</span> Visit Storefront
+            </a>
+            <a href="#" class="flex items-center gap-4 text-white transition font-bold py-3 sea-gradient rounded-2xl px-4 shadow-lg shadow-blue-500/20">
+                <span>📊</span> Command Hub
+            </a>
+            <a href="scholarships.html" class="flex items-center gap-4 text-slate-400 hover:text-white transition font-bold py-2">
+                <span>📡</span> Intelligence Sensor
+            </a>
         </nav>
 
-        <div class="mt-auto pt-8 border-t border-slate-800">
-            <button id="connect-dash" class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl font-bold text-xs transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2">
-                <span id="dash-icon">🔌</span> <span id="dash-text">Connect Wallet</span>
-            </button>
-            <p class="text-[9px] font-black text-slate-500 uppercase mt-4 text-center tracking-widest">Injective Mainnet Node Active</p>
+        <div class="mt-auto bg-white/5 p-6 rounded-[32px] border border-white/10">
+            <p class="text-[9px] font-black text-blue-400 uppercase tracking-widest mb-3">Sovereign Identity</p>
+            <p class="text-xs font-bold truncate">Samuel Oluwadiya</p>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-tighter font-black">March 2026 ACTIVE</p>
         </div>
     </aside>
 
-    <main class="ml-72 flex-1 p-12">
-        <header class="flex justify-between items-end mb-12">
+    <main class="ml-80 flex-1 p-12 relative overflow-x-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[120px] opacity-40 -z-10"></div>
+
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
-                <h1 class="text-3xl font-[900] text-slate-900 tracking-tight">Marketplace Command</h1>
-                <p class="text-slate-500 font-bold uppercase text-[11px] tracking-widest mt-1">Sovereign Financial Infrastructure | March 2026</p>
+                <h1 class="text-4xl font-[900] text-[#001f3f] tracking-tight uppercase">Infrastructure Flow</h1>
+                <p class="text-slate-500 font-bold text-xs mt-1 uppercase tracking-widest">Real-time Settlement Hub</p>
             </div>
+            
             <div class="flex gap-4">
-                <div class="stat-card">
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Platform Share (5%)</p>
-                    <p id="fee-total" class="text-2xl font-black text-blue-600">Calculating...</p>
+                <div class="glass p-6 rounded-[32px] min-w-[220px] stat-card shadow-sm">
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Total Zone Intake</p>
+                    <p id="total-revenue" class="text-2xl font-black text-[#001f3f]">₦0.00</p>
                 </div>
-                <div class="stat-card border-blue-100 bg-blue-50/30">
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Global INJ/USD</p>
-                    <p class="text-2xl font-black text-slate-900">$2.98</p>
+                <div class="sea-gradient p-6 rounded-[32px] min-w-[220px] text-white shadow-xl shadow-blue-200 stat-card">
+                    <p class="text-[9px] font-black text-blue-100 uppercase tracking-widest mb-2">Architect Share (5%)</p>
+                    <p id="architect-share" class="text-2xl font-black">0.00 INJ</p>
                 </div>
             </div>
         </header>
 
-        <div class="bg-white rounded-[32px] border border-slate-200 overflow-hidden shadow-sm">
-            <div class="p-8 border-b border-slate-100 flex justify-between items-center bg-white">
-                <h3 class="font-black text-slate-900 uppercase tracking-widest text-xs">Institutional Asset Management</h3>
-                <span class="bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase">Settlement Unit: INJ</span>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="glass p-6 rounded-3xl text-center border-b-4 border-blue-500">
+                <p class="text-[10px] font-black text-slate-400 uppercase mb-1">Imaging</p>
+                <p id="cat-count-imaging" class="text-xl font-extrabold text-[#001f3f]">0 Units</p>
             </div>
-            <table class="w-full text-left">
-                <thead class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-[0.15em]">
-                    <tr>
-                        <th class="px-8 py-5">Equipment / Part Name</th>
-                        <th class="px-8 py-5">Category</th>
-                        <th class="px-8 py-5">Naira Ref (₦)</th>
-                        <th class="px-8 py-5 text-right">Unit Price (INJ)</th>
-                        <th class="px-8 py-5 text-center">Status</th>
-                    </tr>
-                </thead>
-                <tbody id="inventory-body" class="divide-y divide-slate-50">
-                    </tbody>
-            </table>
+            <div class="glass p-6 rounded-3xl text-center border-b-4 border-cyan-500">
+                <p class="text-[10px] font-black text-slate-400 uppercase mb-1">ICU Gear</p>
+                <p id="cat-count-icu" class="text-xl font-extrabold text-[#001f3f]">0 Units</p>
+            </div>
+            <div class="glass p-6 rounded-3xl text-center border-b-4 border-indigo-500">
+                <p class="text-[10px] font-black text-slate-400 uppercase mb-1">BME Lab</p>
+                <p id="cat-count-lab" class="text-xl font-extrabold text-[#001f3f]">0 Units</p>
+            </div>
+            <div class="glass p-6 rounded-3xl text-center border-b-4 border-slate-500">
+                <p class="text-[10px] font-black text-slate-400 uppercase mb-1">Consumables</p>
+                <p id="cat-count-consumables" class="text-xl font-extrabold text-[#001f3f]">0 Units</p>
+            </div>
+        </div>
+
+        <div class="glass rounded-[40px] overflow-hidden shadow-2xl border border-white">
+            <div class="p-8 border-b border-slate-100 flex justify-between items-center bg-white/40">
+                <h3 class="font-black text-[#001f3f] uppercase tracking-widest text-xs italic">Asset Directory</h3>
+                <span class="text-[9px] font-black bg-blue-50 text-blue-600 px-4 py-2 rounded-full uppercase tracking-tighter">Settlement: Injective Mainnet</span>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50/50 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                        <tr>
+                            <th class="px-10 py-6">Hardware & Model</th>
+                            <th class="px-10 py-6">Sector</th>
+                            <th class="px-10 py-6">Price (₦)</th>
+                            <th class="px-10 py-6 text-right">Settlement (INJ)</th>
+                            <th class="px-10 py-6 text-center">Protocol Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dash-inventory" class="divide-y divide-slate-100 bg-white/20">
+                        </tbody>
+                </table>
+            </div>
         </div>
     </main>
 
     <script>
-        // ARCHITECT'S CALIBRATION (March 12, 2026)
-        const USD_NGN = 1685; // Samuel's Safety Buffer Rate
-        const INJ_USD = 2.98; // March 2026 Live Market
-        const FEE_PERCENT = 0.05; // 5% Architect Fee
+        const USD_NGN = 1685; 
+        const INJ_USD = 2.98;
+        const FEE = 0.05;
 
-        const catalog = [
-            // --- IMAGING ---
-            { name: "MRI Cold Head (GE/Siemens)", cat: "Imaging Parts", usd: 7500, stock: 2 },
-            { name: "Toshiba Ultrasound Transducer", cat: "Imaging Parts", usd: 1150, stock: 5 },
-            { name: "X-Ray Tube (High Heat)", cat: "Imaging Parts", usd: 4200, stock: 1 },
-            { name: "Lead Glass (Radiation Shielding)", cat: "Imaging Parts", usd: 650, stock: 10 },
-            
-            // --- BME LAB ---
-            { name: "Rigol Digital Oscilloscope", cat: "BME Lab", usd: 580, stock: 4 },
-            { name: "BME Advanced Sensor Kit", cat: "Educational", usd: 45, stock: 30 },
-            { name: "Patient Monitor (12.1-inch)", cat: "ICU/Theatre", usd: 850, stock: 12 },
-            
-            // --- CONSUMABLES & DIAGNOSTICS ---
-            { name: "Nitrile Gloves (Carton 1000pcs)", cat: "Consumables", usd: 185, stock: 150 },
-            { name: "Digital ECG Machine (12-Ch)", cat: "Diagnostics", usd: 1200, stock: 3 },
-            { name: "Digital BP Monitor Pro", cat: "Diagnostics", usd: 55, stock: 45 },
-            { name: "Infusion Pump (Volumetric)", cat: "Theatre/ICU", usd: 450, stock: 8 },
-            { name: "Surgical Blade #11 (Box 100)", cat: "Consumables", usd: 8, stock: 200 }
+        // Unified Database (Must match Index)
+        const inventory = [
+            { name: "MRI Cold Head", model: "Sumitomo F-50", cat: "Parts", usd: 7500 },
+            { name: "Ultrasound Probe", model: "Toshiba C1-5", cat: "Imaging", usd: 1150 },
+            { name: "Patient Monitor", model: "Mindray ePM 12", cat: "ICU", usd: 850 },
+            { name: "Digital ECG", model: "GE MAC 2000", cat: "Imaging", usd: 1250 },
+            { name: "Digital Oscilloscope", model: "Rigol DS1102Z", cat: "Lab", usd: 580 },
+            { name: "Dental X-Ray", model: "Vatech EzRay Air", cat: "Dental", usd: 2800 },
+            { name: "Infusion Pump", model: "Terumo TE-171", cat: "ICU", usd: 450 }
         ];
 
-        function initDashboard() {
-            const table = document.getElementById('inventory-body');
-            const feeDisplay = document.getElementById('fee-total');
-            let totalFeeUSD = 0;
+        function initDash() {
+            const table = document.getElementById('dash-inventory');
+            let totalNGN = 0;
+            let totalINJShare = 0;
             
-            table.innerHTML = '';
+            // Category Counters
+            const counts = { Imaging: 0, ICU: 0, Lab: 0, Consumables: 0 };
 
-            catalog.forEach(item => {
-                const nairaRef = (item.usd * USD_NGN).toLocaleString();
-                const injPrice = (item.usd / INJ_USD).toFixed(2);
+            table.innerHTML = '';
+            inventory.forEach(item => {
+                const nPrice = item.usd * USD_NGN;
+                const iPrice = (item.usd / INJ_USD).toFixed(2);
+                const share = (item.usd * FEE) / INJ_USD;
                 
-                // Track 5% share logic
-                totalFeeUSD += (item.usd * FEE_PERCENT);
+                totalNGN += nPrice;
+                totalINJShare += share;
+                if(counts[item.cat] !== undefined) counts[item.cat]++;
 
                 table.innerHTML += `
-                    <tr class="hover:bg-slate-50/80 transition duration-200">
-                        <td class="px-8 py-6 font-bold text-slate-800">${item.name}</td>
-                        <td class="px-8 py-6 text-slate-500 font-medium text-xs tracking-wide">${item.cat}</td>
-                        <td class="px-8 py-6 text-slate-400 font-mono text-xs font-bold">₦${nairaRef}</td>
-                        <td class="px-8 py-6 text-right font-black text-blue-600 tracking-tight">${injPrice} INJ</td>
-                        <td class="px-8 py-6 text-center">
-                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-tighter">Market Ready</span>
+                    <tr class="hover:bg-blue-50/50 transition-all duration-300">
+                        <td class="px-10 py-8">
+                            <p class="font-extrabold text-[#001f3f] text-sm">${item.name}</p>
+                            <p class="text-[9px] font-black text-blue-400 uppercase mt-1 tracking-tighter">${item.model}</p>
+                        </td>
+                        <td class="px-10 py-8">
+                            <span class="text-[9px] font-black text-slate-500 uppercase bg-slate-100 px-3 py-1 rounded-lg">${item.cat}</span>
+                        </td>
+                        <td class="px-10 py-8 font-bold text-slate-600 text-sm italic">₦${nPrice.toLocaleString()}</td>
+                        <td class="px-10 py-8 text-right">
+                            <p class="font-black text-blue-600 text-lg">${iPrice}</p>
+                            <p class="text-[9px] font-bold text-slate-300 uppercase">INJ Settlement</p>
+                        </td>
+                        <td class="px-10 py-8 text-center">
+                            <div class="flex items-center justify-center gap-1.5">
+                                <span class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></span>
+                                <span class="text-[10px] font-black text-green-600 uppercase">Live</span>
+                            </div>
                         </td>
                     </tr>`;
             });
 
-            // Calculate total profit for cycle in INJ
-            const totalFeeINJ = (totalFeeUSD / INJ_USD).toFixed(2);
-            feeDisplay.innerText = `${totalFeeINJ} INJ`;
+            document.getElementById('total-revenue').innerText = `₦${totalNGN.toLocaleString()}`;
+            document.getElementById('architect-share').innerText = `${totalINJShare.toFixed(2)} INJ`;
+            
+            // Update Category Widgets
+            document.getElementById('cat-count-imaging').innerText = counts.Imaging + " Units";
+            document.getElementById('cat-count-icu').innerText = counts.ICU + " Units";
+            document.getElementById('cat-count-lab').innerText = counts.Lab + " Units";
         }
 
-        // WALLET LOGIC
-        const dashBtn = document.getElementById('connect-dash');
-        const dashText = document.getElementById('dash-text');
-
-        dashBtn.addEventListener('click', async () => {
-            if (window.ethereum) {
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    const account = accounts[0];
-                    dashText.innerText = account.substring(0, 6) + '...' + account.substring(account.length - 4);
-                    dashBtn.classList.replace('bg-blue-600', 'bg-green-500');
-                    document.getElementById('dash-icon').innerText = '✅';
-                } catch (e) { alert('Access Denied'); }
-            } else { alert('Please install MetaMask'); }
-        });
-
-        window.onload = initDashboard;
+        window.onload = initDash;
     </script>
 </body>
-    </html>
+                                                                                               </html>
