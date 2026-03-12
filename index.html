@@ -3,146 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dolphin Medical | Institutional Healthcare Marketplace</title>
+    <title>Dolphin Medical | Sovereign Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .inj-gradient { background: linear-gradient(135deg, #00A3FF 0%, #4D3DFF 100%); }
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        :root { --dolphin-blue: #0077be; --deep-sea: #001f3f; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f0f4f8; overflow-x: hidden; }
+        
+        /* 3D Glassmorphism Effect */
+        .glass { 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 20px 40px rgba(0, 119, 190, 0.1); 
+        }
+        
+        /* Floating Animation */
+        .floating { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .sea-gradient { background: linear-gradient(135deg, #0077be 0%, #00aaff 100%); }
+        .product-card:hover { transform: scale(1.03) translateY(-10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-900">
+<body>
 
-    <div class="bg-[#182E4B] text-white text-[10px] py-2.5 px-8 flex justify-between font-black tracking-widest uppercase sticky top-0 z-[100]">
-        <div class="flex gap-4 items-center">
-            <span class="flex items-center gap-1.5"><span class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></span> INJECTIVE MAINNET LIVE</span>
-            <span class="text-slate-400 border-l border-slate-700 pl-4">ARCHITECT: SAMUEL OLUWADIYA</span>
-        </div>
-        <div class="flex gap-6 items-center">
-            <span>USD/NGN: <span class="text-blue-400 font-mono">1,685.00</span></span>
-            <span>INJ/USD: <span class="text-blue-400 font-mono">2.98</span></span>
-        </div>
-    </div>
+    <div class="fixed -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full blur-[120px] opacity-40 z-0"></div>
+    <div class="fixed top-1/2 -right-24 w-80 h-80 bg-cyan-200 rounded-full blur-[100px] opacity-30 z-0"></div>
 
-    <nav class="glass-nav py-6 px-8 flex justify-between items-center sticky top-9 z-50">
-        <div class="flex items-center gap-2">
-            <div class="h-10 w-10 inj-gradient rounded-xl flex items-center justify-center text-white font-black text-xl italic shadow-lg">D</div>
-            <span class="text-2xl font-[900] tracking-tighter text-slate-900 uppercase">Dolphin<span class="text-blue-600">Medical</span></span>
-        </div>
-        <div class="hidden md:flex gap-10 items-center">
-            <a href="scholarships.html" class="text-sm font-bold text-slate-500 hover:text-blue-600 transition">Scholarship Sensor</a>
-            <a href="dashboard.html" class="text-sm font-bold text-slate-500 hover:text-blue-600 transition">Admin Dashboard</a>
-            <button id="connect-wallet" class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-sm hover:shadow-xl hover:bg-blue-700 transition-all flex items-center gap-2">
-                <span id="wallet-icon">🔌</span> <span id="wallet-text">Connect Injective</span>
+    <nav class="sticky top-0 z-[100] px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="h-12 w-12 sea-gradient rounded-xl flex items-center justify-center text-white text-2xl font-black italic shadow-lg shadow-blue-300">D</div>
+                <div>
+                    <span class="text-xl font-[900] tracking-tighter text-[#001f3f] block leading-none">DOLPHIN</span>
+                    <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest leading-none">Industrial Zone</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex gap-8 text-sm font-bold text-slate-600">
+                <a href="#" class="hover:text-blue-600 transition">Marketplace</a>
+                <a href="scholarships.html" class="hover:text-blue-600 transition">Field Sensor</a>
+                <a href="dashboard.html" class="hover:text-blue-600 transition">Dashboard</a>
+            </div>
+
+            <button id="connect-wallet" class="sea-gradient text-white px-6 py-3 rounded-xl font-bold text-xs shadow-lg shadow-blue-200 hover:scale-105 transition-all">
+                Connect Wallet
             </button>
         </div>
     </nav>
 
-    <header class="pt-24 pb-20 px-6 text-center bg-white">
-        <div class="max-w-4xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[11px] font-black mb-8 tracking-wider uppercase">
-                Sovereign Healthcare Infrastructure | Built for 2026
+    <section class="max-w-7xl mx-auto px-6 pt-20 pb-12 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="animate-in fade-in slide-in-from-left duration-1000">
+                <h1 class="text-6xl md:text-7xl font-[900] text-[#001f3f] leading-[0.9] mb-6">
+                    Future-Ready <br> <span class="text-blue-600">Medical Logistics.</span>
+                </h1>
+                <p class="text-lg text-slate-500 mb-8 font-medium max-w-md">
+                    Nigeria's premium hub for imaging parts and BME infrastructure. Calibrated for 2026.
+                </p>
+                <div class="flex gap-4">
+                    <button class="bg-[#001f3f] text-white px-8 py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl">Explore Zone</button>
+                    <div class="flex items-center gap-2 text-blue-600 font-bold text-xs px-4">
+                        <span class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></span> INJECTIVE ACTIVE
+                    </div>
+                </div>
             </div>
-            <h1 class="text-6xl md:text-7xl font-[800] text-slate-900 mb-8 tracking-tight leading-[0.95]">
-                Nigeria's Hub for <br> <span class="text-blue-600 italic underline decoration-blue-100">Medical Hardware.</span>
-            </h1>
-            <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-12">
-                Procure Imaging Parts, BME lab gear, and hospital essentials. All settled in INJ with built-in inflation protection.
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#market" class="px-10 py-5 rounded-2xl bg-slate-900 text-white font-bold text-lg hover:bg-blue-600 transition-all">Explore Catalog</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="market" class="max-w-7xl mx-auto py-24 px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-            <div>
-                <h2 class="text-4xl font-black text-slate-900 mb-2 uppercase tracking-tight">Institutional Catalog</h2>
-                <p class="text-slate-500 font-bold italic">Prices include 25% Logistics & Naira Buffer</p>
+            <div class="floating hidden md:block">
+                <div class="w-full h-[450px] sea-gradient rounded-[60px] shadow-2xl overflow-hidden flex items-center justify-center border-8 border-white">
+                    <span class="text-white text-9xl font-black italic opacity-20">DOLPHIN</span>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div id="market-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex gap-4 overflow-x-auto pb-6 scrollbar-hide">
+            <div class="flex-shrink-0 bg-white px-8 py-4 rounded-2xl shadow-sm border border-slate-100 font-black text-[10px] uppercase tracking-widest text-blue-600 cursor-pointer hover:bg-blue-600 hover:text-white transition">☢️ Imaging</div>
+            <div class="flex-shrink-0 bg-white px-8 py-4 rounded-2xl shadow-sm border border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 cursor-pointer">🏥 ICU Gear</div>
+            <div class="flex-shrink-0 bg-white px-8 py-4 rounded-2xl shadow-sm border border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 cursor-pointer">🧪 BME Lab</div>
+            <div class="flex-shrink-0 bg-white px-8 py-4 rounded-2xl shadow-sm border border-slate-100 font-black text-[10px] uppercase tracking-widest text-slate-400 cursor-pointer">🔧 Spare Parts</div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-black text-[#001f3f] mb-8 uppercase tracking-tighter">Live Inventory</h2>
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             </div>
     </section>
 
-    <footer class="bg-slate-900 text-white py-20 px-8 text-center md:text-left">
-        <div class="max-w-7xl mx-auto border-t border-slate-800 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-[10px] font-black tracking-widest text-slate-500 uppercase">
-                &copy; 2026 DOLPHIN INDUSTRIAL ZONE | ARCHITECT: SAMUEL OLUWADIYA
-            </p>
-            <p class="text-[10px] font-black tracking-widest text-blue-400 uppercase">
-                POWERED BY INJECTIVE PROTOCOL
-            </p>
-        </div>
-    </footer>
-
     <script>
-        // MARCH 2026 MARKET SETTINGS
-        const USD_NGN = 1685; // Samuel's Safety Buffer Rate
-        const INJ_USD = 2.98; // March 2026 Injective Price
-
-        // INSTITUTIONAL INVENTORY (Expand this array to 100+ items)
-        const masterCatalog = [
-            { name: "MRI Cold Head (GE/Siemens)", cat: "Imaging Parts", usd_base: 7500 },
-            { name: "Toshiba Ultrasound Probe", cat: "Imaging Parts", usd_base: 1150 },
-            { name: "X-Ray Tube (High Heat)", cat: "Imaging Parts", usd_base: 4200 },
-            { name: "Mindray Patient Monitor 12.1", cat: "Theatre/ICU", usd_base: 850 },
-            { name: "Rigol Digital Oscilloscope", cat: "BME Lab", usd_base: 580 },
-            { name: "Digital ECG Machine (12-Ch)", cat: "Diagnostics", usd_base: 1200 },
-            { name: "Nitrile Gloves (Carton 1000pcs)", cat: "Consumables", usd_base: 185 },
-            { name: "Infusion Pump (Volumetric)", cat: "Theatre/ICU", usd_base: 450 },
-            { name: "Digital BP Monitor Pro", cat: "Diagnostics", usd_base: 55 },
-            { name: "BME Advanced Sensor Kit", cat: "Educational", usd_base: 45 },
-            { name: "Surgical Blade #11 (Box 100)", cat: "Consumables", usd_base: 8 },
-            { name: "IV Cannula G20 (Box 50)", cat: "Consumables", usd_base: 18 }
+        const USD_NGN = 1685;
+        const products = [
+            { name: "MRI Cold Head (GE/Siemens)", usd: 7500, cat: "Imaging Parts" },
+            { name: "Toshiba Ultrasound Probe", usd: 1100, cat: "Imaging Parts" },
+            { name: "Mindray Patient Monitor", usd: 850, cat: "Theatre/ICU" },
+            { name: "Rigol Digital Oscilloscope", usd: 580, cat: "BME Lab" },
+            { name: "Nitrile Gloves (Bulk)", usd: 185, cat: "Consumables" }
         ];
 
-        function renderMarket() {
-            const grid = document.getElementById('market-grid');
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
-
-            masterCatalog.forEach(item => {
-                const nairaRef = (item.usd_base * USD_NGN).toLocaleString();
-                const injPrice = (item.usd_base / INJ_USD).toFixed(2);
-
+            products.forEach(p => {
+                const naira = (p.usd * USD_NGN).toLocaleString();
                 grid.innerHTML += `
-                    <div class="bg-white p-8 rounded-[40px] border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden">
-                        <div class="absolute -right-4 -top-4 h-24 w-24 bg-blue-50 rounded-full group-hover:scale-150 transition duration-700"></div>
-                        <span class="relative text-[10px] font-black uppercase text-blue-600 bg-blue-50/50 px-3 py-1 rounded-full">${item.cat}</span>
-                        <h3 class="relative text-2xl font-extrabold mt-4 mb-2 text-slate-900 tracking-tight">${item.name}</h3>
-                        <p class="relative text-slate-400 text-xs font-bold mb-8">LOCAL REF: ₦${nairaRef}</p>
-                        
-                        <div class="relative pt-6 border-t border-slate-50 flex justify-between items-center">
-                            <div>
-                                <p class="text-[10px] font-black text-blue-600 uppercase mb-1">Pay with INJ</p>
-                                <p class="text-3xl font-black text-slate-900">${injPrice} <span class="text-sm text-slate-400 uppercase">INJ</span></p>
-                            </div>
-                            <button onclick="alert('Proceeding to Injective Payment Gateway...')" class="h-14 w-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-xl shadow-lg hover:bg-blue-600 hover:-translate-y-1 transition-all">🛒</button>
+                    <div class="product-card glass p-8 rounded-[40px] relative overflow-hidden cursor-pointer group">
+                        <div class="h-2 w-full sea-gradient absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition"></div>
+                        <p class="text-[9px] font-black text-blue-500 uppercase mb-4 tracking-widest">${p.cat}</p>
+                        <h4 class="text-xl font-extrabold text-[#001f3f] mb-2 leading-tight">${p.name}</h4>
+                        <p class="text-3xl font-[900] text-slate-900 mb-8">₦${naira}</p>
+                        <div class="flex gap-2">
+                            <button onclick="payWithPaystack(${p.usd * USD_NGN})" class="flex-1 bg-blue-600 text-white py-4 rounded-2xl font-bold text-xs hover:bg-[#001f3f] transition uppercase tracking-widest">Naira Pay</button>
+                            <button class="w-16 h-14 border border-blue-200 rounded-2xl flex items-center justify-center text-lg grayscale hover:grayscale-0 transition">💎</button>
                         </div>
                     </div>`;
             });
         }
 
-        // WALLET ENGINE
-        const connectBtn = document.getElementById('connect-wallet');
-        const walletText = document.getElementById('wallet-text');
+        function payWithPaystack(amount) {
+            let handler = PaystackPop.setup({
+                key: 'YOUR_PUBLIC_KEY', // Put your Paystack key here
+                email: 'customer@email.com',
+                amount: amount * 100, // Amount in kobo
+                currency: 'NGN',
+                callback: function(response) {
+                    alert('Transaction Successful! ID: ' + response.reference);
+                }
+            });
+            handler.openIframe();
+        }
 
-        connectBtn.addEventListener('click', async () => {
+        // Mobile Wallet Logic
+        document.getElementById('connect-wallet').addEventListener('click', async () => {
             if (window.ethereum) {
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    const account = accounts[0];
-                    walletText.innerText = account.substring(0, 6) + '...' + account.substring(account.length - 4);
-                    connectBtn.classList.replace('bg-blue-600', 'bg-green-500');
-                    document.getElementById('wallet-icon').innerText = '✅';
-                } catch (e) { alert('Connection Denied'); }
-            } else { alert('Please install MetaMask or an Injective Wallet'); }
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                document.getElementById('connect-wallet').innerText = "✅ ONLINE";
+            } else {
+                window.open("https://metamask.app.link/dapp/" + window.location.host);
+            }
         });
 
-        window.onload = renderMarket;
+        window.onload = renderProducts;
     </script>
 </body>
-</html>
+    </html>
