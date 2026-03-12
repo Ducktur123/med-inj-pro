@@ -3,83 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendor Dashboard | Dolphin Medical</title>
+    <title>Vendor Command Center | Dolphin Medical</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
 </head>
-<body class="bg-slate-50 flex">
+<body class="bg-[#F8FAFC] flex min-h-screen">
 
-    <aside class="w-64 bg-slate-900 min-h-screen p-6 text-white fixed">
-        <div class="text-2xl font-bold mb-10 text-blue-400">DOLPHIN <span class="text-white">MED</span></div>
-        <nav class="space-y-4">
-            <a href="#" class="block p-3 bg-blue-600 rounded-lg">📦 Inventory</a>
-            <a href="#" class="block p-3 hover:bg-slate-800 rounded-lg">📊 Sales Analytics</a>
-            <a href="#" class="block p-3 hover:bg-slate-800 rounded-lg">🎓 Scholarship Hub</a>
-            <a href="#" class="block p-3 hover:bg-slate-800 rounded-lg">⚙️ Settings</a>
+    <aside class="w-72 bg-[#0F172A] p-8 text-white flex flex-col fixed h-full shadow-2xl">
+        <div class="text-2xl font-extrabold tracking-tighter mb-12 flex items-center gap-2">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-sm italic">DM</div>
+            DOLPHIN<span class="text-blue-400">MED</span>
+        </div>
+        
+        <nav class="space-y-2 flex-1">
+            <a href="index.html" class="flex items-center gap-3 p-3 text-slate-400 hover:text-white transition group">
+                <span class="text-xl group-hover:-translate-x-1 transition">←</span> 
+                <span class="font-semibold text-sm">Back to Storefront</span>
+            </a>
+            <div class="h-px bg-slate-800 my-6"></div>
+            <a href="#" class="flex items-center gap-3 p-4 bg-blue-600/10 text-blue-400 rounded-xl border border-blue-600/20 font-bold">
+                <span>📦</span> Inventory Control
+            </a>
+            <a href="scholarships.html" class="flex items-center gap-3 p-4 text-slate-400 hover:bg-slate-800 rounded-xl transition">
+                <span>🎓</span> Scholarship Sync
+            </a>
+            <a href="#" class="flex items-center gap-3 p-4 text-slate-400 hover:bg-slate-800 rounded-xl transition">
+                <span>📊</span> Sales Ledger
+            </a>
         </nav>
+
+        <div class="mt-auto bg-slate-800/50 p-4 rounded-2xl border border-slate-700">
+            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-2">Verified Wallet</p>
+            <p class="text-xs font-mono text-blue-300 break-all">inj1jk7gan038x4wejpl6jrtxtj68p6mzc3yn8ywfq</p>
+        </div>
     </aside>
 
-    <main class="ml-64 flex-1 p-10">
-        <header class="flex justify-between items-center mb-10">
-            <h1 class="text-3xl font-bold text-slate-800">Vendor Inventory Control</h1>
+    <main class="ml-72 flex-1 p-12">
+        <header class="flex justify-between items-start mb-12">
+            <div>
+                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Vendor Management</h1>
+                <p class="text-slate-500 mt-1 font-medium text-lg">Managing 104 medical SKUs on Injective Network.</p>
+            </div>
             <div class="flex gap-4">
-                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow-lg hover:bg-blue-700">+ Add New Product</button>
-                <div class="bg-white p-2 px-4 rounded-lg border border-slate-200 font-mono text-sm">Wallet: inj1jk...ywfq</div>
+                <button class="bg-white border border-slate-200 px-6 py-3 rounded-xl font-bold shadow-sm hover:bg-slate-50 transition">Export CSV</button>
+                <button class="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-blue-200 transition">+ New Listing</button>
             </div>
         </header>
 
-        <div class="grid grid-cols-3 gap-6 mb-10">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <p class="text-slate-500 text-sm">Total Sales</p>
-                <p class="text-2xl font-bold text-slate-900">1,240.50 INJ</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-12 -mt-12 transition-all group-hover:scale-110"></div>
+                <p class="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">Gross Revenue</p>
+                <p class="text-4xl font-black text-slate-900">2,480.15 <span class="text-blue-600">INJ</span></p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <p class="text-slate-500 text-sm">Platform Fee (5%)</p>
-                <p class="text-2xl font-bold text-red-500">- 62.02 INJ</p>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm border-t-4 border-t-red-500">
+                <p class="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">Platform Fee (5%)</p>
+                <p class="text-4xl font-black text-red-600">124.01 <span class="text-red-400 font-normal italic">INJ</span></p>
+                <p class="text-xs text-slate-400 mt-2 italic">*Reserved for platform maintenance</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <p class="text-slate-500 text-sm">Active Listings</p>
-                <p class="text-2xl font-bold text-slate-900">104 Items</p>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm border-t-4 border-t-green-500">
+                <p class="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">Net Payout</p>
+                <p class="text-4xl font-black text-slate-900">2,356.14 <span class="text-green-600">INJ</span></p>
             </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-            <table class="w-full text-left">
-                <thead class="bg-slate-50 border-b border-slate-200">
-                    <tr>
-                        <th class="p-4 font-semibold text-slate-600">Product Name</th>
-                        <th class="p-4 font-semibold text-slate-600">Category</th>
-                        <th class="p-4 font-semibold text-slate-600">Stock</th>
-                        <th class="p-4 font-semibold text-slate-600">Price (INJ)</th>
-                        <th class="p-4 font-semibold text-slate-600">Status</th>
+        <div class="bg-white rounded-[32px] shadow-sm border border-slate-100 overflow-hidden">
+            <div class="p-8 border-b border-slate-50 flex justify-between items-center">
+                <h3 class="text-xl font-bold">Active Inventory</h3>
+                <div class="flex items-center gap-2 text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                    <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                    Live Network Updates
+                </div>
+            </div>
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="text-slate-400 text-[11px] uppercase tracking-widest font-black">
+                        <th class="px-8 py-5">Product SKU</th>
+                        <th class="px-8 py-5">Category</th>
+                        <th class="px-8 py-5 text-center">Stock Level</th>
+                        <th class="px-8 py-5 text-right">Unit Price (INJ)</th>
+                        <th class="px-8 py-5 text-center">Protocol Status</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-100">
-                    <tr>
-                        <td class="p-4 text-slate-800 font-medium">Precision Pulse Oximeter</td>
-                        <td class="p-4 text-slate-500 text-sm">Diagnostics</td>
-                        <td class="p-4 text-slate-800">45 Units</td>
-                        <td class="p-4 text-blue-600 font-bold">5.20</td>
-                        <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Live</span></td>
+                <tbody class="divide-y divide-slate-50">
+                    <tr class="hover:bg-slate-50/50 transition cursor-pointer">
+                        <td class="px-8 py-6 font-bold text-slate-800">Precision Pulse Oximeter</td>
+                        <td class="px-8 py-6 text-slate-500 font-medium">Diagnostics</td>
+                        <td class="px-8 py-6 text-center"><span class="bg-slate-100 px-3 py-1 rounded-lg font-bold">45</span></td>
+                        <td class="px-8 py-6 text-right font-black text-blue-600">5.20</td>
+                        <td class="px-8 py-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-black uppercase">Active</span></td>
                     </tr>
-                    <tr>
-                        <td class="p-4 text-slate-800 font-medium">Nitrile Gloves (Box 100)</td>
-                        <td class="p-4 text-slate-500 text-sm">Consumables</td>
-                        <td class="p-4 text-slate-800">1,200 Units</td>
-                        <td class="p-4 text-blue-600 font-bold">1.15</td>
-                        <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Live</span></td>
+                    <tr class="hover:bg-slate-50/50 transition cursor-pointer">
+                        <td class="px-8 py-6 font-bold text-slate-800">Nitrile Gloves (Box 100)</td>
+                        <td class="px-8 py-6 text-slate-500 font-medium">Consumables</td>
+                        <td class="px-8 py-6 text-center"><span class="bg-slate-100 px-3 py-1 rounded-lg font-bold">1,200</span></td>
+                        <td class="px-8 py-6 text-right font-black text-blue-600">1.15</td>
+                        <td class="px-8 py-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-black uppercase">Active</span></td>
                     </tr>
-                    <tr>
-                        <td class="p-4 text-slate-800 font-medium">ECG Thermal Paper Roll</td>
-                        <td class="p-4 text-slate-500 text-sm">Consumables</td>
-                        <td class="p-4 text-slate-800">Out of Stock</td>
-                        <td class="p-4 text-blue-600 font-bold">0.45</td>
-                        <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs">Restocking</span></td>
+                    <tr class="hover:bg-slate-50/50 transition cursor-pointer">
+                        <td class="px-8 py-6 font-bold text-slate-800">ECG Thermal Paper</td>
+                        <td class="px-8 py-6 text-slate-500 font-medium">Consumables</td>
+                        <td class="px-8 py-6 text-center"><span class="bg-red-50 text-red-600 px-3 py-1 rounded-lg font-bold">0</span></td>
+                        <td class="px-8 py-6 text-right font-black text-blue-600">0.45</td>
+                        <td class="px-8 py-6 text-center"><span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-[10px] font-black uppercase">Restocking</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
+
 </body>
-  </html>
+                </html>
