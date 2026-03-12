@@ -3,137 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BME Field Intelligence | Dolphin Industrial Zone</title>
+    <title>BME Quad-Sensor | Dolphin Industrial Zone</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --dolphin-blue: #0077be; --deep-sea: #001f3f; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f0f4f8; overflow-x: hidden; }
-        
-        .glass { 
-            background: rgba(255, 255, 255, 0.7); 
-            backdrop-filter: blur(20px); 
-            border: 1px solid rgba(255, 255, 255, 0.3); 
-        }
-
-        .sea-gradient { background: linear-gradient(135deg, #0077be 0%, #00aaff 100%); }
-        
-        .intel-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0, 119, 190, 0.05);
-        }
-        .intel-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px -15px rgba(0, 119, 190, 0.15);
-            border-color: var(--dolphin-blue);
-        }
-
-        .pulse-node {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+        :root { --dolphin-blue: #0077be; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f0f4f8; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .intel-card { transition: all 0.3s ease; border-left: 4px solid transparent; }
+        .intel-card:hover { border-left-color: var(--dolphin-blue); background: white; transform: translateX(10px); }
     </style>
 </head>
-<body class="text-[#001f3f]">
+<body class="p-8">
 
-    <div class="fixed -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full blur-[120px] opacity-40 -z-10"></div>
-
-    <nav class="sticky top-0 z-[100] px-6 py-4">
-        <div class="max-w-7xl mx-auto glass rounded-2xl p-4 flex justify-between items-center shadow-lg">
-            <div class="flex items-center gap-3">
-                <div class="h-10 w-10 sea-gradient rounded-xl flex items-center justify-center text-white text-xl font-black italic shadow-lg">D</div>
-                <div class="hidden md:block">
-                    <span class="text-lg font-[900] tracking-tighter block leading-none">FIELD SENSOR</span>
-                    <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest">Dolphin Industrial Zone</span>
-                </div>
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-16 flex justify-between items-end">
+            <div>
+                <h1 class="text-5xl font-[900] tracking-tighter text-[#001f3f]">Global <span class="text-blue-600">Field Sensor.</span></h1>
+                <p class="text-slate-500 font-bold uppercase text-xs tracking-widest mt-2">March 2026 Real-Time Monitoring</p>
             </div>
+            <a href="index.html" class="bg-[#001f3f] text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest">Return to Market</a>
+        </header>
 
-            <div class="flex gap-4">
-                <a href="index.html" class="text-xs font-black uppercase text-slate-500 hover:text-blue-600 transition px-4 py-2">Marketplace</a>
-                <a href="dashboard.html" class="text-xs font-black uppercase text-slate-500 hover:text-blue-600 transition px-4 py-2">Dashboard</a>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+            <button onclick="monitor('Biomedical Engineering Scholarships')" class="glass p-6 rounded-3xl text-center hover:bg-blue-600 hover:text-white transition group">
+                <span class="block text-2xl mb-2">🎓</span>
+                <span class="text-[10px] font-black uppercase tracking-widest">Scholarships</span>
+            </button>
+            <button onclick="monitor('Biomedical Engineering Internships 2026')" class="glass p-6 rounded-3xl text-center hover:bg-blue-600 hover:text-white transition group">
+                <span class="block text-2xl mb-2">💼</span>
+                <span class="text-[10px] font-black uppercase tracking-widest">Internships</span>
+            </button>
+            <button onclick="monitor('Biomedical Engineering Events Nigeria')" class="glass p-6 rounded-3xl text-center hover:bg-blue-600 hover:text-white transition group">
+                <span class="block text-2xl mb-2">🇳🇬</span>
+                <span class="text-[10px] font-black uppercase tracking-widest">Nigeria Events</span>
+            </button>
+            <button onclick="monitor('Biomedical Research Publications')" class="glass p-6 rounded-3xl text-center hover:bg-blue-600 hover:text-white transition group">
+                <span class="block text-2xl mb-2">📄</span>
+                <span class="text-[10px] font-black uppercase tracking-widest">Publications</span>
+            </button>
         </div>
-    </nav>
 
-    <header class="max-w-7xl mx-auto px-6 pt-16 pb-12">
-        <div class="flex flex-col md:flex-row justify-between items-end gap-6">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black mb-6 uppercase tracking-widest">
-                    <span class="h-2 w-2 bg-blue-600 rounded-full pulse-node"></span> Live Global Feed
-                </div>
-                <h1 class="text-5xl md:text-6xl font-[900] leading-tight tracking-tight">Biomedical <br><span class="text-blue-600">Intelligence Hub.</span></h1>
+        <div id="intel-feed" class="space-y-4">
             </div>
-            <div class="flex gap-2 bg-white p-2 rounded-2xl shadow-sm border border-slate-100">
-                <button onclick="updateFeed('Biomedical Engineering Nigeria')" class="px-6 py-3 rounded-xl bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest transition">Nigeria Feed</button>
-                <button onclick="updateFeed('Biomedical Internship 2026')" class="px-6 py-3 rounded-xl hover:bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest transition">Internships</button>
-                <button onclick="updateFeed('BME Research Professor')" class="px-6 py-3 rounded-xl hover:bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest transition">Faculty News</button>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-6 py-12">
-        <div id="intel-feed" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="col-span-full py-40 text-center">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-4 border-blue-600 border-opacity-50 mb-4"></div>
-                <p class="text-slate-400 font-black text-xs uppercase tracking-[0.3em]">Calibrating Global Node...</p>
-            </div>
-        </div>
-    </main>
-
-    <footer class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200 text-center">
-        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em] mb-4">Dolphin Industrial Zone | Sovereign 2026 Infrastructure</p>
-        <p class="text-[9px] font-bold text-blue-500 italic">Architected by Samuel Oluwadiya</p>
-    </footer>
+    </div>
 
     <script>
-        // MARCH 2026 FEED KEY
-        const INTEL_KEY = '0e7b181f74834ae98c4c1c8c8ec447bc';
+        const API_KEY = '0e7b181f74834ae98c4c1c8c8ec447bc';
 
-        async function updateFeed(query) {
+        async function monitor(query) {
             const feed = document.getElementById('intel-feed');
-            feed.innerHTML = `
-                <div class="col-span-full py-40 text-center">
-                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-4 border-blue-600 mb-4"></div>
-                    <p class="text-slate-400 font-black text-xs uppercase tracking-widest font-mono">Scanning: ${query}...</p>
-                </div>`;
+            feed.innerHTML = '<p class="text-center font-black uppercase text-xs text-slate-400 py-20 tracking-widest animate-pulse">Syncing with Global Nodes...</p>';
             
             try {
-                const response = await fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=relevancy&language=en&apiKey=${INTEL_KEY}`);
+                const response = await fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&apiKey=${API_KEY}`);
                 const data = await response.json();
-
-                if (data.articles && data.articles.length > 0) {
-                    feed.innerHTML = ''; 
-                    data.articles.slice(0, 12).forEach(article => {
-                        const date = new Date(article.publishedAt).toLocaleDateString('en-NG', { month: 'short', day: 'numeric' });
-                        feed.innerHTML += `
-                            <div class="intel-card glass p-8 rounded-[40px] flex flex-col h-full">
-                                <div class="flex justify-between items-center mb-6">
-                                    <span class="text-[9px] font-black uppercase bg-blue-50 text-blue-600 px-3 py-1 rounded-full tracking-tighter">Field Intel</span>
-                                    <span class="text-slate-400 text-[10px] font-bold uppercase">${date}</span>
-                                </div>
-                                <h3 class="text-xl font-[800] text-[#001f3f] mb-4 leading-tight">${article.title}</h3>
-                                <p class="text-slate-500 text-sm leading-relaxed mb-10 line-clamp-3 font-medium italic">"${article.description || 'Accessing technical publications via Dolphin Zone secondary nodes...'}"</p>
-                                <div class="mt-auto pt-6 border-t border-slate-100 flex justify-between items-center">
-                                    <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">${article.source.name}</span>
-                                    <a href="${article.url}" target="_blank" class="sea-gradient text-white h-10 w-10 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">→</a>
-                                </div>
+                
+                feed.innerHTML = '';
+                data.articles.slice(0, 15).forEach(item => {
+                    feed.innerHTML += `
+                        <div class="glass p-8 rounded-[32px] intel-card flex justify-between items-center group">
+                            <div class="max-w-3xl">
+                                <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest mb-2 block">${item.source.name}</span>
+                                <h3 class="text-xl font-extrabold text-[#001f3f] mb-2 leading-tight">${item.title}</h3>
+                                <p class="text-sm text-slate-500 font-medium line-clamp-1 italic">${item.description || 'Internal technical documentation accessible via full node.'}</p>
                             </div>
-                        `;
-                    });
-                } else {
-                    feed.innerHTML = `<p class="col-span-full text-center text-slate-400 font-bold py-40 uppercase tracking-widest text-xs">Sector Silent. No new publications detected in the last 24h.</p>`;
-                }
-            } catch (error) {
-                feed.innerHTML = `<p class="col-span-full text-center text-red-400 font-bold py-40 uppercase tracking-widest text-xs">Sensor Offline: Check Node Connection.</p>`;
+                            <a href="${item.url}" target="_blank" class="h-14 w-14 bg-[#001f3f] text-white rounded-2xl flex items-center justify-center font-black text-xl hover:bg-blue-600 transition">→</a>
+                        </div>`;
+                });
+            } catch (e) {
+                feed.innerHTML = '<p class="text-red-500 font-black uppercase text-xs text-center">Sensor Node Timeout.</p>';
             }
         }
 
-        // Initialize Global Field Data
-        window.onload = () => updateFeed('Biomedical Engineering Industry');
+        window.onload = () => monitor('Biomedical Engineering Global');
     </script>
 </body>
 </html>
