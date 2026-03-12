@@ -3,70 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dolphin Medical | Nigeria's Sovereign Exchange</title>
+    <title>Dolphin Medical | Sovereign 100 Inventory</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --dolphin-blue: #0077be; --deep-sea: #001f3f; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f4f7fa; }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        :root { --dolphin-blue: #0077be; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
         .sea-gradient { background: linear-gradient(135deg, #0077be 0%, #00aaff 100%); }
-        .cat-link:hover { background: #f0f7ff; color: #0077be; padding-left: 1.5rem; transition: all 0.3s ease; }
-        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -15px rgba(0,119,190,0.15); }
+        .sidebar-link:hover { background: #f0f7ff; color: #0077be; padding-left: 1.5rem; transition: all 0.3s ease; }
     </style>
 </head>
-<body class="text-slate-900">
+<body class="text-[#001f3f]">
 
     <nav class="bg-white border-b sticky top-0 z-[100] px-6 py-4 shadow-sm">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+        <div class="max-w-[1600px] mx-auto flex items-center justify-between gap-12">
             <div class="flex items-center gap-3">
-                <div class="h-10 w-10 sea-gradient rounded-xl flex items-center justify-center text-white text-xl font-black italic shadow-lg">D</div>
-                <span class="text-xl font-[900] tracking-tighter text-[#001f3f] uppercase">Dolphin<span class="text-blue-500">Medical</span></span>
+                <div class="h-10 w-10 sea-gradient rounded-xl flex items-center justify-center text-white text-xl font-black shadow-lg">D</div>
+                <span class="text-xl font-[900] tracking-tighter uppercase">Dolphin<span class="text-blue-500">Medical</span></span>
             </div>
             
-            <div class="flex-1 max-w-2xl hidden md:flex border-2 border-slate-100 rounded-xl overflow-hidden focus-within:border-blue-400 transition">
-                <input type="text" placeholder="Search for MRI parts, ECG models, or surgical tools..." class="w-full px-5 py-3 outline-none text-sm font-medium">
-                <button class="sea-gradient text-white px-8 font-bold text-xs uppercase tracking-widest">Search</button>
+            <div class="flex-1 max-w-3xl hidden md:flex border-2 border-slate-100 rounded-2xl overflow-hidden">
+                <input type="text" id="mainSearch" placeholder="Search 100+ Professional Medical Assets..." class="w-full px-6 py-3 outline-none text-sm font-medium">
+                <button class="sea-gradient text-white px-10 font-bold text-xs uppercase tracking-widest">Search</button>
             </div>
 
-            <div class="flex items-center gap-6">
-                <button id="connect-wallet" class="text-xs font-black uppercase text-blue-600 border-2 border-blue-100 px-5 py-2.5 rounded-xl hover:bg-blue-50 transition">Connect Wallet</button>
-                <a href="dashboard.html" class="text-xl">🛒</a>
+            <div class="flex items-center gap-8">
+                <a href="scholarships.html" class="text-xs font-black uppercase text-slate-400 hover:text-blue-600">Intelligence</a>
+                <a href="dashboard.html" class="text-xs font-black uppercase text-slate-400 hover:text-blue-600">Admin</a>
+                <button id="connect-wallet" class="sea-gradient text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg shadow-blue-200">Connect Wallet</button>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-12 gap-8">
+    <div class="max-w-[1600px] mx-auto px-6 py-8 grid grid-cols-12 gap-8">
         
-        <aside class="col-span-12 md:col-span-3">
-            <div class="glass rounded-[32px] p-6 shadow-sm sticky top-28">
-                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 border-b pb-4">Specialized Sectors</h3>
+        <aside class="col-span-12 md:col-span-2">
+            <div class="glass rounded-[32px] p-6 sticky top-28">
+                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6">Departments</h3>
                 <ul class="space-y-1">
-                    <li><a href="#" onclick="filter('Imaging')" class="cat-link flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-bold text-slate-600">☢️ Imaging & Radiology</a></li>
-                    <li><a href="#" onclick="filter('ICU')" class="cat-link flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-bold text-slate-600">🏥 ICU & Theatre</a></li>
-                    <li><a href="#" onclick="filter('Lab')" class="cat-link flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-bold text-slate-600">🧪 BME Lab Gear</a></li>
-                    <li><a href="#" onclick="filter('Parts')" class="cat-link flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-bold text-slate-600">🔧 Genuine Spare Parts</a></li>
-                    <li><a href="#" onclick="filter('Dental')" class="cat-link flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-bold text-slate-600">🦷 Dental Systems</a></li>
-                    <li><a href="#" onclick="filter('Consumables')" class="cat-link flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-bold text-slate-600">🧤 Hospital Essentials</a></li>
+                    <li><button onclick="renderInventory('Imaging')" class="sidebar-link w-full text-left flex items-center gap-3 py-3 px-4 rounded-xl text-xs font-bold text-slate-600">☢️ Imaging</button></li>
+                    <li><button onclick="renderInventory('ICU')" class="sidebar-link w-full text-left flex items-center gap-3 py-3 px-4 rounded-xl text-xs font-bold text-slate-600">🏥 ICU Gear</button></li>
+                    <li><button onclick="renderInventory('Lab')" class="sidebar-link w-full text-left flex items-center gap-3 py-3 px-4 rounded-xl text-xs font-bold text-slate-600">🧪 BME Lab</button></li>
+                    <li><button onclick="renderInventory('Parts')" class="sidebar-link w-full text-left flex items-center gap-3 py-3 px-4 rounded-xl text-xs font-bold text-slate-600">🔧 Spare Parts</button></li>
+                    <li><button onclick="renderInventory('Consumables')" class="sidebar-link w-full text-left flex items-center gap-3 py-3 px-4 rounded-xl text-xs font-bold text-slate-600">🧤 Consumables</button></li>
                 </ul>
             </div>
         </aside>
 
-        <main class="col-span-12 md:col-span-9">
-            <div class="sea-gradient h-[300px] rounded-[40px] mb-12 relative overflow-hidden flex items-center px-12 text-white shadow-2xl">
-                <div class="relative z-10">
-                    <span class="bg-white/20 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">2026 Logistics Hub</span>
-                    <h2 class="text-4xl md:text-5xl font-[900] mt-4 mb-6 leading-tight">Sovereign Medical <br> Infrastructure.</h2>
-                    <button class="bg-white text-blue-600 px-8 py-3.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg">View Official Stores</button>
+        <main class="col-span-12 md:col-span-10">
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h2 id="cat-title" class="text-3xl font-[900] tracking-tight uppercase">Master Inventory</h2>
+                    <p class="text-slate-400 font-bold text-xs uppercase mt-1">Verified Medical Hardware & Components</p>
                 </div>
-                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="text-right">
+                    <span class="text-[10px] font-black text-blue-500 uppercase">Settlement: NGN / INJ</span>
+                </div>
             </div>
 
-            <h3 id="category-title" class="text-xl font-black text-[#001f3f] mb-8 uppercase tracking-tighter">Top Recommendations</h3>
-            
-            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 </div>
         </main>
     </div>
@@ -74,55 +71,51 @@
     <script>
         const USD_NGN = 1685;
         
-        // Jumia-Style Database with Categories and Models
-        const inventory = [
-            { name: "MRI Cold Head", model: "Sumitomo F-50", cat: "Parts", usd: 7500 },
-            { name: "Ultrasound Probe", model: "Toshiba C1-5 Convex", cat: "Imaging", usd: 1150 },
-            { name: "Patient Monitor", model: "Mindray ePM 12", cat: "ICU", usd: 850 },
-            { name: "Digital ECG", model: "GE MAC 2000", cat: "Imaging", usd: 1250 },
-            { name: "Digital Oscilloscope", model: "Rigol DS1102Z-E", cat: "Lab", usd: 580 },
-            { name: "Surgical Blade", model: "Size 11 (Box 100)", cat: "Consumables", usd: 15 },
-            { name: "Dental X-Ray", model: "Vatech EzRay Air", cat: "Dental", usd: 2800 },
-            { name: "Infusion Pump", model: "Terumo TE-171", cat: "ICU", usd: 450 },
-            { name: "Centrifuge Machine", model: "Hettich EBA 200", cat: "Lab", usd: 920 }
+        // COMPREHENSIVE 100-ITEM DATABASE MOCKUP
+        const baseItems = [
+            { name: "MRI Cold Head", cat: "Parts", model: "Sumitomo F-50", usd: 7500, img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=400" },
+            { name: "Patient Monitor", cat: "ICU", model: "Mindray ePM 12", usd: 850, img: "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=400" },
+            { name: "Ultrasound Probe", cat: "Imaging", model: "Toshiba C1-5", usd: 1150, img: "https://images.unsplash.com/photo-1584017947486-62e0d183d81e?q=80&w=400" },
+            { name: "Lab Centrifuge", cat: "Lab", model: "Hettich EBA 200", usd: 920, img: "https://images.unsplash.com/photo-1579154273821-ad3c14fd78f9?q=80&w=400" }
         ];
 
-        function renderProducts(filterCat = 'all') {
+        // Generator for 100 unique entries
+        const fullInventory = [];
+        for(let i=1; i<=100; i++) {
+            const template = baseItems[i % baseItems.length];
+            fullInventory.push({
+                id: i,
+                name: `${template.name} V-${i+200}`,
+                cat: template.cat,
+                model: `${template.model}`,
+                usd: template.usd + (i * 10),
+                img: template.img
+            });
+        }
+
+        function renderInventory(filter = 'all') {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
+            const filtered = filter === 'all' ? fullInventory : fullInventory.filter(x => x.cat === filter);
             
-            const filtered = filterCat === 'all' ? inventory : inventory.filter(i => i.cat === filterCat);
-
             filtered.forEach(p => {
                 const naira = (p.usd * USD_NGN).toLocaleString();
                 grid.innerHTML += `
-                    <div class="product-card glass p-8 rounded-[40px] flex flex-col h-full relative group">
-                        <div class="absolute top-6 right-6 text-[10px] font-black text-blue-500 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-tighter">${p.cat}</div>
-                        <div class="h-32 mb-6 flex items-center justify-center text-5xl opacity-20 group-hover:opacity-40 transition">🏥</div>
-                        <h4 class="text-sm font-black text-slate-500 uppercase tracking-widest mb-1">${p.model}</h4>
-                        <h3 class="text-xl font-extrabold text-[#001f3f] mb-6 leading-tight">${p.name}</h3>
-                        <div class="mt-auto pt-6 border-t border-slate-100 flex justify-between items-center">
-                            <div>
-                                <p class="text-[10px] font-black text-slate-400 uppercase">Cash Price</p>
-                                <p class="text-xl font-black text-slate-900">₦${naira}</p>
-                            </div>
-                            <button onclick="payWithPaystack(${p.usd * USD_NGN})" class="h-14 w-14 sea-gradient text-white rounded-2xl flex items-center justify-center text-xl shadow-lg hover:scale-110 transition cursor-pointer">🛒</button>
+                    <div class="bg-white rounded-[32px] p-5 shadow-sm hover:shadow-xl transition-all border border-slate-50 group">
+                        <div class="h-48 rounded-2xl overflow-hidden mb-6 bg-slate-100">
+                            <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <p class="text-[9px] font-black text-blue-500 uppercase tracking-widest mb-1">${p.cat}</p>
+                        <h4 class="text-sm font-black text-[#001f3f] mb-4 h-10 line-clamp-2">${p.name}</h4>
+                        <div class="flex justify-between items-center border-t pt-4">
+                            <p class="text-lg font-black tracking-tighter">₦${naira}</p>
+                            <button onclick="payWithPaystack(${p.usd * USD_NGN})" class="sea-gradient h-10 w-10 rounded-xl text-white font-bold flex items-center justify-center shadow-lg">+</button>
                         </div>
                     </div>`;
             });
         }
 
-        function filter(c) {
-            document.getElementById('category-title').innerText = c + " Systems";
-            renderProducts(c);
-        }
-
-        function payWithPaystack(amount) {
-            alert("Secure Payment Gateway: Initializing ₦" + amount.toLocaleString());
-            // Actual Paystack setup here
-        }
-
-        window.onload = () => renderProducts();
+        window.onload = () => renderInventory('all');
     </script>
 </body>
-            </html>
+    </html>
